@@ -1,0 +1,11 @@
+services:
+  db:
+    image: postgres:15
+    container_name: notes_db
+    restart: always
+    environment:
+      POSTGRES_USER: user_notes
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: db_notes
+    ports:
+      - '5432:5432'
