@@ -1,12 +1,13 @@
 # Notes App
 
-A full-stack Single Page Application (SPA) for creating, tagging, and filtering notes. Built as a technical exercise implementing a clean REST API backend with a React frontend.
+A full-stack Single Page Application (SPA) for creating, tagging, and filtering notes. A full-stack Single Page Application (SPA) for creating, tagging, and filtering notes. Built to practice full stack development with a clean REST API and a React frontend.
 
 ---
 
 ## Tech Stack
 
 ### Backend
+
 - **Node.js** v24.11.1
 - **npm** v11.10.1
 - **NestJS** v11.0.16
@@ -15,11 +16,13 @@ A full-stack Single Page Application (SPA) for creating, tagging, and filtering 
 - **class-validator** — DTO validation
 
 ### Frontend
+
 - **React** v19
 - **TypeScript**
 - **Vite** — build tool and dev server
 
 ### Infrastructure
+
 - **Docker** v28.5.1 — for running PostgreSQL locally
 
 ---
@@ -64,12 +67,12 @@ Vite was chosen over Create React App because it is the modern standard for Reac
 
 Make sure you have the following installed:
 
-| Tool | Version |
-|------|---------|
-| Node.js | v24.11.1 |
-| npm | v11.10.1 |
+| Tool       | Version  |
+| ---------- | -------- |
+| Node.js    | v24.11.1 |
+| npm        | v11.10.1 |
 | NestJS CLI | v11.0.16 |
-| Docker | v28.5.1 |
+| Docker     | v28.5.1  |
 
 ---
 
@@ -85,6 +88,7 @@ chmod +x start.sh
 ```
 
 This will automatically:
+
 1. Start a PostgreSQL container via Docker
 2. Create the `.env` file for the backend
 3. Install dependencies for both backend and frontend
@@ -133,6 +137,7 @@ npm run dev
 ```
 
 Once running:
+
 - **Frontend:** http://localhost:5173
 - **Backend API:** http://localhost:3000
 
@@ -142,35 +147,37 @@ Once running:
 
 ### Notes
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/notes` | Get all active notes |
-| GET | `/notes?isArchived=true` | Get archived notes |
-| GET | `/notes?category=name` | Filter notes by category |
-| POST | `/notes` | Create a note |
-| PATCH | `/notes/:id` | Update a note (title, content, isArchived) |
-| DELETE | `/notes/:id` | Delete a note |
-| POST | `/notes/:id/categories` | Add a category to a note |
-| DELETE | `/notes/:noteId/categories/:categoryId` | Remove a category from a note |
+| Method | Endpoint                                | Description                                |
+| ------ | --------------------------------------- | ------------------------------------------ |
+| GET    | `/notes`                                | Get all active notes                       |
+| GET    | `/notes?isArchived=true`                | Get archived notes                         |
+| GET    | `/notes?category=name`                  | Filter notes by category                   |
+| POST   | `/notes`                                | Create a note                              |
+| PATCH  | `/notes/:id`                            | Update a note (title, content, isArchived) |
+| DELETE | `/notes/:id`                            | Delete a note                              |
+| POST   | `/notes/:id/categories`                 | Add a category to a note                   |
+| DELETE | `/notes/:noteId/categories/:categoryId` | Remove a category from a note              |
 
 ### Categories
 
 The categories resource exposes basic CRUD endpoints, though category management is handled indirectly through the notes endpoints above — categories are created on the fly when added to a note.
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/categories` | Get all categories |
+| Method | Endpoint      | Description        |
+| ------ | ------------- | ------------------ |
+| GET    | `/categories` | Get all categories |
 
 ---
 
 ## Features
 
 ### Phase 1
+
 - Create, edit, and delete notes
 - Archive and unarchive notes
 - List active and archived notes separately
 
 ### Phase 2
+
 - Add and remove categories (tags) to notes
 - Filter notes by category, respecting the active/archived view
 - Create new categories on the fly when adding a tag
